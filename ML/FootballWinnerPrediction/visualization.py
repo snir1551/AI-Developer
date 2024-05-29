@@ -1,10 +1,13 @@
 import os
+from copy import copy
 
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 import seaborn as sns
+
+from preprocessing_df import normalize, preprocess_df
 
 
 def visualization(df, target, path_to_save):
@@ -23,6 +26,20 @@ def target_plot(data, target, path_to_save):
     plt.xticks(rotation=45)
     if path_to_save:
         plt.savefig(f"{path_to_save}/target_plot.png")
+    else:
+        plt.show()
+    plt.close()
+
+
+def heatmap_on_fields(data, features, path_to_save):
+    corr_matrix = data[features].corr()
+    # Generate a heatmap
+    plt.figure(figsize=(10, 8))
+    heatmap = sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar=True)
+    heatmap.set_title('Heatmap of Feature Correlation')
+    if path_to_save:
+        plt.savefig(f"{path_to_save}/heatmap.png", bbox_inches='tight', pad_inches=0.1,
+                    dpi=300)  # Save with high dpi
     else:
         plt.show()
     plt.close()
@@ -50,6 +67,9 @@ def heatmap_on_target(df, target, path_to_save):
 
 
 def create_violin_plots_for_each_feature(data, target, path_to_save):
+    plot_dir = "violin_plots"
+    dir_path = f"{path_to_save}/{plot_dir}"
+    check_if_dir_exists(dir_path)
     for column in data.select_dtypes(include=[np.number]).columns:
         # We skip the target itself if it's encoded as a number
         if column == target:
@@ -61,12 +81,15 @@ def create_violin_plots_for_each_feature(data, target, path_to_save):
         plt.title(f'Violin Plot of {column} by {target}')
         # Since we're using 'hue', there will be a legend. We remove it with the following line.
         plt.legend([], [], frameon=False)
-        plt.savefig(f"{path_to_save}/{column}_violin_plot.png")
+        plt.savefig(f"{dir_path}/{column}_violin_plot.png")
         plt.close()
         print(f"Created violin plot for {column} by {target}")
 
 
 def create_histograms_and_density_plots(data, target, path_to_save):
+    plot_dir = "histograms_and_density_plots"
+    dir_path = f"{path_to_save}/{plot_dir}"
+    check_if_dir_exists(dir_path)
     for column in data.select_dtypes(include=[np.number]).columns:
         # Skip the target if it's numeric
         if column == target:
@@ -83,12 +106,15 @@ def create_histograms_and_density_plots(data, target, path_to_save):
         plt.legend(title=target)
 
         # Save the plot to the specified path
-        plt.savefig(os.path.join(path_to_save, f"{column}_density_by_{target}.png"))
+        plt.savefig(os.path.join(dir_path, f"{column}_density_by_{target}.png"))
         plt.close()  # Close the figure to conserve memory
         print(f"Created density plot for {column} by {target}")
 
 
 def create_importance_of_feature(top_features, path_to_save):
+    plot_dir = "importance_of_feature"
+    dir_path = f"{path_to_save}/{plot_dir}"
+    check_if_dir_exists(dir_path)
     plt.figure(figsize=(10, 8))
     sns.barplot(data=top_features, y='Feature', x='Importance', orient='h', palette='coolwarm')
     plt.title('Top 20 Most Important Features in Predicting Match Outcomes')
@@ -96,7 +122,21 @@ def create_importance_of_feature(top_features, path_to_save):
     plt.ylabel('Features')
     plt.tight_layout()
     if path_to_save:
-        plt.savefig(f"{path_to_save}/importance_of_feature.png", bbox_inches='tight', pad_inches=0.1,
+        plt.savefig(f"{dir_path}/importance_of_feature.png", bbox_inches='tight', pad_inches=0.1,
                     dpi=300)  # Save with high dpi
     else:
         plt.show()
+
+
+def check_if_dir_exists(dir_path):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+
+
+if __name__ == '__main__':
+    df = pd.read_csv(f"datasets/data.csv")
+    test_df = pd.read_csv(f"datasets/test_data.csv")
+    df, temp = normalize(df, copy(df), normalize_mode="advanced")
+    df = preprocess_df(data=df, binary_classification=True)
+    visualization(df, "target", "visualization")
+    print("Done")

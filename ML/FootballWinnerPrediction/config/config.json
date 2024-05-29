@@ -1,0 +1,21 @@
+{
+  "comment": "Just first test",
+  "save_min_dataset": false,
+  "create_train_dataset": false,
+  "last_date_in_train_dataset": "2022-01-01",
+  "create_test_dataset": true,
+  "last_date_in_test_dataset": "2024-01-01",
+  "create_model": true,
+  "dataset": "data.csv",
+  "test_dataset": "test_data.csv",
+  "drop_goals": false,
+  "binary_classification": true,
+  "normalize_mode": "advanced",
+  "features_to_select": [
+    "teamWinsBalance",
+    "dangerousAttacksBalance_70",
+    "possessionBalance_70",
+    "onTargetBalance_70",
+    "scoreBalance_70"
+  ]
+}

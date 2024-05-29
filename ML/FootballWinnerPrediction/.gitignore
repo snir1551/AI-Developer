@@ -1,0 +1,95 @@
+datasets
+# Folders
+__pycache__*
+.vscode*
+**/Figures/*
+**/CSV/*
+*_files/*
+**/Data/*
+**/Drops/*
+Archive/*
+**/*logs*/*
+**/catboost_*/*
+**/TensorBoardLog/*
+**/DetectShips/*
+**/HW*/*
+
+# Archives
+*.7z
+*.zip
+
+# Media Files
+*.avi
+*.bmp
+*.jpg
+*.mp4
+# *.png
+*.svg
+*.tif
+
+# Documents
+*.docx
+*.doc
+*.html
+*.pdf
+*.xls
+*.xlsx
+
+# MATLAB Compiler / Coder
+*App/
+#*.prj
+*.fig
+
+# MATLAB Files
+# https://www.mathworks.com/company/newsletters/articles/automatically-save-backup-m-files-with-the-matlab-editor.html
+*.asv
+*.m~
+*.mat
+*.mex*
+
+# Python
+*.ckpt
+*.pth
+.ipynb_checkpoints*
+*.npz
+*.npy
+*TMP*.ipynb
+*TMP*.py
+*TEMP*.ipynb
+*TEMP*.py
+
+# Miscellaneous
+Report*.html
+KaggleWhatsCooking.json
+IMDBReviews*.*
+
+
+
+*/Exercises - Copy/*
+DeepLearningMethods/OLD/*
+*Web/*
+
+data/*
+*runs/*
+*.pyc
+*.pt
+*.vscode
+*runs
+
+creditcard.csv
+
+
+
+BCI_Data.mat
+WISDM_ar_v1.1_raw.txt
+labeledTrainData.tsv
+face_data.mat
+bank-additional-full.csv
+Train.csv
+data.mat
+MercedesBenzTrain.csv
+TIMIT_Train.mat
+.idea/
+visualization
+results
+db_config.json

@@ -1,0 +1,108 @@
+[
+  {
+    "minutes": [
+     70
+    ],
+    "name": "goalsLocalteam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "goalsVisitorTeam"
+  },
+  {
+    "name": "possessionLocalteam",
+    "minutes": [
+     70
+    ]
+  },
+  {
+    "name": "possessionVisitorTeam",
+    "minutes": [
+     70
+    ]
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "scoreBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "goalsLocalteam",
+    "visitorTeamStatistic": "goalsVisitorTeam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "attacksBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "attacksLocalteam",
+    "visitorTeamStatistic": "attacksVisitorTeam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "dangerousAttacksBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "dangerousAttacksLocalteam",
+    "visitorTeamStatistic": "dangerousAttacksVisitorTeam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "offTargetBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "offTargetLocalteam",
+    "visitorTeamStatistic": "offTargetVisitorTeam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "onTargetBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "onTargetLocalteam",
+    "visitorTeamStatistic": "onTargetVisitorTeam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "cornersBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "cornersLocalteam",
+    "visitorTeamStatistic": "cornersVisitorTeam"
+  },
+  {
+    "minutes": [
+     70
+    ],
+    "name": "possessionBalance",
+    "balanceFeature": true,
+    "localTeamStatistic": "possessionLocalteam",
+    "visitorTeamStatistic": "possessionVisitorTeam"
+  },
+  {
+    "name": "isWinnerChange",
+    "special": true,
+    "minutes": [
+     70
+    ]
+  },
+  {
+    "name": "localTeamWins",
+    "copyValue": true
+  },
+  {
+    "name": "visitorTeamWins",
+    "copyValue": true
+  },
+  {
+    "name": "teamWinsBalance",
+    "special": true
+  }
+]

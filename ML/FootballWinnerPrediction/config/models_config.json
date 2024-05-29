@@ -1,0 +1,209 @@
+{
+  "cv": 5,
+  "n_jobs": 10,
+  "verbose": 3,
+  "results_folder": "results_all_models_70_not_binary",
+  "models_configs": [
+    {
+      "type": "KNeighborsClassifier",
+      "params": {
+        "algorithm": [
+          "ball_tree",
+          "kd_tree",
+          "brute",
+          "auto"
+        ],
+        "leaf_size": [
+          20,
+          30,
+          40
+        ],
+        "metric": [
+          "minkowski"
+        ],
+        "metric_params": [
+          null
+        ],
+        "n_neighbors": [
+          3,
+          5,
+          10,
+          15,
+          20
+        ],
+        "p": [
+          1,
+          2
+        ],
+        "weights": [
+          "uniform",
+          "distance"
+        ]
+      }
+    },
+    {
+      "type": "LinearSVC",
+      "params": {
+        "C": [
+          0.5,
+          1.0,
+          1.5,
+          2,
+          3
+        ],
+        "loss": [
+          "hinge",
+          "squared_hinge"
+        ],
+        "dual": [
+          true,
+          false
+        ],
+        "max_iter": [
+          1000,
+          10000
+        ]
+      }
+    },
+    {
+      "type": "SVC",
+      "params": {
+        "C": [
+          0.5,
+          1.0,
+          1.5,
+          2
+        ],
+        "degree": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "shrinking": [
+          true,
+          false
+        ],
+        "probability": [
+          false,
+          true
+        ],
+        "kernel": [
+          "linear",
+          "poly",
+          "rbf",
+          "sigmoid"
+        ],
+        "gamma": [
+          "scale",
+          "auto"
+        ]
+      }
+    },
+    {
+      "type": "LogisticRegression",
+      "params": {
+        "C": [
+          0.5,
+          1.0,
+          1.5,
+          2
+        ],
+        "penalty": [
+          null,
+          "l1",
+          "l2",
+          "elasticnet"
+        ],
+        "solver": [
+          "newton-cg",
+          "newton-cholesky",
+          "lbfgs",
+          "liblinear",
+          "sag",
+          "saga"
+        ],
+        "max_iter": [
+          100,
+          1000,
+          10000
+        ]
+      }
+    },
+    {
+      "type": "RandomForestClassifier",
+      "params": {
+        "n_estimators": [
+          50,
+          100,
+          200
+        ],
+        "max_depth": [
+          3,
+          5,
+          10,
+          15
+        ],
+        "min_samples_split": [
+          2
+        ],
+        "min_samples_leaf": [
+          1
+        ],
+        "bootstrap": [
+          false,
+          true
+        ],
+        "criterion": [
+          "gini",
+          "entropy",
+          "log_loss"
+        ]
+      }
+    },
+    {
+      "type": "GradientBoostingClassifier",
+      "params": {
+        "loss": [
+          "log_loss",
+          "exponential"
+        ],
+        "learning_rate": [
+          0.1,
+          0.01,
+          0.001
+        ],
+        "n_estimators": [
+          1000,
+          5000
+        ],
+        "max_depth": [
+          2,
+          3,
+          5,
+          10,
+          15
+        ],
+        "n_iter_no_change": [
+          5
+        ],
+        "validation_fraction": [
+          0.1
+        ],
+        "tol": [
+          0.0005,
+          0.0001,
+          0.00001
+        ],
+        "subsample": [
+          0.75,
+          0.8
+        ],
+        "criterion": [
+          "friedman_mse",
+          "squared_error"
+        ]
+      }
+    }
+  ]
+}
